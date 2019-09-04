@@ -1,0 +1,30 @@
+#include <iostream>
+#include <Eigen/Dense>
+#include<ctime>
+#include<Eigen/Core>
+
+using namespace std;
+#define MATRIX_SIZE 4
+int main()
+{
+
+
+
+  //求解方程 求解matrix_NN*x=v_Nd
+  //矩阵随机生成
+
+  Eigen::Matrix<double ,MATRIX_SIZE,MATRIX_SIZE>matrix_NN;
+  matrix_NN=Eigen::MatrixXd::Random(MATRIX_SIZE,MATRIX_SIZE);
+  Eigen::Matrix<double,MATRIX_SIZE,1>v_Nd;
+  v_Nd=Eigen::MatrixXd::Random(MATRIX_SIZE,1);
+  clockid_t time_stt=clock();//计时
+
+  //直接求逆
+  Eigen::Matrix<double,MATRIX_SIZE,1> x=matrix_NN.inverse()*v_Nd;
+  cout<<"原矩阵= "<<matrix_NN<<endl;
+  cout<<endl;
+  cout<<"设定的v_Nd= "<<v_Nd<<endl;
+  cout<<endl;
+  cout<<"解出的x值= "<<x;
+
+}
