@@ -1,0 +1,31 @@
+#include <iostream>
+#include <vector>
+#include <list>
+#include <algorithm>
+using namespace std;
+
+int main()
+{
+    int arr[5] = { 1, 2, 3, 4, 5};
+
+    vector<int>    ivec;
+
+
+    ivec.push_back(1);
+    ivec.push_back(2);
+    ivec.push_back(3);
+    ivec.push_back(4);
+    ivec.push_back(5);
+    vector<int>::iterator ivec_1=find (ivec.begin(),ivec.end(),3);
+    cout<<ivec[2]<<endl;
+    if (ivec_1==ivec.end())
+    {
+        cout<<"没找到"<<endl;
+    }
+    else
+        cout<<"找到了"<<endl;
+
+
+
+    return 0;
+}
