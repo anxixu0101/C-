@@ -1,0 +1,29 @@
+#include <iostream>
+#include <vector>
+#include <list>
+#include <algorithm>
+#include<cmath>
+#include<Eigen/Core>
+#include<Eigen/Geometry>
+using namespace std;
+
+int main()
+{
+ Eigen::Matrix3d rotation_matrix=Eigen::Matrix3d::Identity();
+
+ Eigen::AngleAxisd rotation_vector_Z(M_PI/4,Eigen::Vector3d(0,0,1));//沿z轴旋转45度
+ Eigen::AngleAxisd rotation_vector_Y(M_PI/4,Eigen::Vector3d(0,1,0));//沿y轴旋转45度
+ Eigen::AngleAxisd rotation_vector_X(M_PI/4,Eigen::Vector3d(1,0,0));//沿x轴旋转45度
+
+ cout .precision(3);
+ cout<<"Z轴旋转矩阵=\n"<<rotation_vector_Z.matrix()<<endl; //沿Z轴旋转45度
+ cout<<endl;
+ cout<<"y轴旋转矩阵=\n"<<rotation_vector_Y.matrix()<<endl;//y轴旋转45度
+ cout<<endl;
+ cout<<"x轴旋转矩阵=\n"<<rotation_vector_X.matrix()<<endl;//x轴旋转45度
+
+
+
+
+    return 0;
+}
