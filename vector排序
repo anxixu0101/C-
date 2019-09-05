@@ -1,0 +1,36 @@
+#include <string.h>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main()
+{
+   vector<int> obj;
+   obj.push_back(1);
+   obj.push_back(10);
+   obj.push_back(4);
+   obj.push_back(5);
+   obj.push_back(7);
+   for (int i=0;i<obj.size();i++)
+   {
+       cout<<obj[i]<<" ";
+   }
+   sort(obj.begin(),obj.end());
+   cout<<endl;
+   cout<<"从小到大"<<endl;
+   for (int i=0;i<obj.size();i++)
+   {
+       cout<<obj[i]<<" ";
+   }
+   cout<<endl;
+   reverse(obj.begin(),obj.end());
+   cout<<"从大到小"<<endl;
+
+   for (int i=0;i<obj.size();i++)
+   {
+       cout<<obj[i]<<" ";
+   }
+
+
+}
