@@ -1,0 +1,57 @@
+#include<iostream>
+struct box
+{
+    char maker[40];
+    float height;
+    float width;
+    float length;
+    float volume;
+};
+box show(box a_1);
+box show_address(box a_1);
+box jisuan(box a_1);
+int main()
+{
+    using namespace std;
+    box a_1={{'h','e','l','l','o'},1,2,3,4};
+    show(a_1);
+    cout<<"------------------"<<endl;
+    show_address(a_1);
+    cout<<"------------------"<<endl;
+    jisuan(a_1);
+
+}
+
+box show(box a_1)
+{
+    using namespace std;
+    cout<<a_1.maker<<endl;
+    cout<<a_1.height<<endl;
+    cout<<a_1.width<<endl;
+    cout<<a_1.length<<endl;
+    cout<<a_1.volume<<endl;
+}
+
+box show_address(box a_1)
+{
+    using namespace std;
+
+    float *a_1_height_address=&a_1.height;
+    float *a_1_width_address=&a_1.width;
+    float *a_1_length_address=&a_1.length;
+    float *a_1_volume_address=&a_1.volume;
+
+    cout<<a_1_height_address<<endl;
+    cout<<a_1_width_address<<endl;
+    cout<<a_1_length_address<<endl;
+    cout<<a_1_volume_address<<endl;
+
+
+}
+
+box jisuan(box a_1)
+{
+    using namespace std;
+    double volume_end;
+    volume_end=a_1.height*a_1.width*a_1.length;
+    cout<<"the end after aftermath is"<<volume_end;
