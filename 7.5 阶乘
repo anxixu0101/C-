@@ -1,0 +1,34 @@
+#include<iostream>
+int jiecheng(int n);
+using namespace std;
+int main()
+{
+  cout<<"please enter your number!"<<endl;
+  int n;
+  int sum_1;
+
+  cin>>n;
+  sum_1=jiecheng(n);
+  cout<<endl;
+  cout<<"the aftermath of your number is "<<sum_1<<endl;
+
+
+}
+int jiecheng(int n)
+{
+    int sum=1;
+    if (n==0)
+    {
+        sum=1;
+    }
+
+    else
+        for(int i=1;i<=n;i++)
+        {
+            sum=sum*i;
+        }
+
+
+    return sum;
+
+}
