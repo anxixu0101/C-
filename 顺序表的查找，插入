@@ -1,0 +1,111 @@
+#include "sequencelist.h"
+#include <iostream>
+using namespace std;
+
+SqList::SqList()//初始化
+{
+    length=0;//
+}
+
+SqList::SqList(ElemType elems[],int n)//有参构造器
+{
+    if(n>MAXSIZE)
+    {
+        cout<<"传入的顺序表长度超出最大范围，只接收了前"<<MAXSIZE<<"个元素"<<endl;
+        length=MAXSIZE;
+    }
+    else
+        length=n;//
+
+    for(int i=0;i<length;i++)
+        data[i]=elems[i];
+}
+
+SqList::~SqList()
+{
+
+}
+
+bool SqList::CreatList()
+{
+
+    cout<<"插入多少个元素(0-20)？"<<endl;
+    cin>>length;
+    if(length<0||length>MAXSIZE)
+    {
+        length=0;
+        return false;
+    }
+    for(int i=1;i<=length;i++)
+    {
+//        cout<<"请输入顺序线性表的第"<<i<<"个元素：";
+//        cin>>L->data[i-1];
+        //data[i-1]=i;
+        cout<<"请输入顺序线性表的第"<<i<<"个元素：";
+        cin>>data[i-1];
+    }
+    return true;
+}
+
+
+void SqList::display()
+{
+    for(int i=0;i<length;i++)
+        cout<<data[i]<<"  ";
+    cout<<endl;
+}
+int SqList::ListLength()
+{
+    cout<<"这个链表的长度是"<<length<<endl;
+
+}
+int SqList::Length()
+{
+   return length;
+}
+
+bool SqList::GetElem(ElemType & e)
+{
+    int i;
+    cout<<"你要查询第几个数？"<<endl;
+    cin>>i;
+    e=data[i-1];
+    cout<<"这个位置的数字是"<<e<<endl;
+}
+int SqList::GetPosition()
+{
+    ElemType x;
+    cout<<"你要定位哪个数字？"<<endl;
+    cin>>x;
+    for(int i=0;i<length;i++)
+    {
+        if(data[i]==x)
+            cout<<"那个数字在第"<<i+1<<"位置上"<<endl;
+
+    }
+
+}
+bool SqList::Insert()
+{
+    ElemType x;
+    int i;
+    cout<<endl;
+    cout<<endl;
+    cout<<"输入你要插入的位置"<<endl;
+    cin>>i;
+    if(i>length||i<1)
+        return false;
+    if(i<=length)
+    {
+      cout<<"输入你要插入的数值"<<endl;
+      cin>>x;
+      for(int k=length;k>=i-1;k--)
+      {
+          data[k+1]=data[k];
+      }
+      data[i-1]=x;
+      length++;
+    }
+
+
+}
