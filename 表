@@ -1,0 +1,95 @@
+#include<iostream>
+
+#include<vector>
+#ifndef LIST;
+#define LIST;
+using namespace std;
+const int CAPACITY=1024;
+typedef int ElementType;
+class List
+{
+
+public:
+//初始化列表
+List();
+//判空
+bool empty() const;
+//插入操作
+void insert(ElementType item,int pos);
+//删除
+void Delete(int pos);
+//显示列表
+void display(ostream & out) const;
+
+private:
+int mySize;//储存的列表大小
+ElementType myArray;//储存列表元素的数组
+myArray=new(nothrow)
+
+
+};
+//ostream & operator<<(ostream & out,const List& aList);
+#endif
+
+
+
+
+#include<iostream>
+#include<cassert>
+#include "anxixu.h"
+using namespace std;
+
+//初始化定义
+List::List()
+:mySize(0)
+{}
+
+bool List::empty() const{
+    return mySize==0;
+}
+
+void List::display(ostream & out) const
+{
+    for(int i=0;i<mySize;i++)
+    {
+        out<<myArray[i]<<" ";
+    }
+}
+//定义操作
+void List::insert(ElementType item,int pos)
+{
+    if(mySize==CAPACITY)
+    {
+       cout<<"超标了"<<" ";
+       //exit(1);
+    }
+    if(pos<0||pos>mySize)
+    {
+        cout<<"无法完成插入数据"<<" ";
+    }  
+    for(int i=pos+1;i<=mySize;i++)
+    {
+        myArray[i+1]=myArray[i];
+    }
+    myArray[pos]=item;
+    mySize++;
+}
+ostream & operator<<(ostream & out,const List &aList)
+{
+    aList.display(out);
+    return out;
+}
+int main()
+{
+  List inList;
+  cout<<"开始插入数据吧!"<<endl;
+  for(int i=0;i<5;i++)
+  {
+      inList.insert(i,i);
+      cout<<inList<<endl;
+      
+  }  
+
+
+}
+
